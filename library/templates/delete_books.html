@@ -1,0 +1,23 @@
+<!-- delete_book.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Book</title>
+</head>
+<body>
+    <h2>Delete Book</h2>
+
+    <p>Are you sure you want to delete the book <strong>{{ book.title }}</strong>?</p>
+
+    <form action="/delete-book/{{ book.id }}/confirm/" method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    
+
+    <form action="/view-books/" method="GET">
+        <button type="submit">Cancel</button>
+    </form>
+</body>
+</html>

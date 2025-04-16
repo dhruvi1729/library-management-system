@@ -1,0 +1,29 @@
+<!-- update_book.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Book</title>
+</head>
+<body>
+    <h2>Update Book Details</h2>
+
+    <form action="{% url 'update_book_submit' book.id %}" method="POST">
+
+        {% csrf_token %}
+        <label>Title:</label><br>
+        <input type="text" name="title" value="{{ book.title }}" required><br><br>
+
+        <label>Author:</label><br>
+        <input type="text" name="author" value="{{ book.author }}" required><br><br>
+
+        <label>Published Year:</label><br>
+        <input type="number" name="published_year" value="{{ book.published_year }}" required><br><br>
+
+        <label>ISBN:</label><br>
+        <input type="text" name="isbn" value="{{ book.isbn }}" required><br><br>
+
+        <button type="submit">Update Book</button>
+    </form>
+</body>
+</html>
